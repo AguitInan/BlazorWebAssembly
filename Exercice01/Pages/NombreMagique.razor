@@ -1,0 +1,57 @@
+﻿@page "/nombremagique"
+
+@using System
+@inject NavigationManager NavigationManager
+
+<h3>Nombre Magique</h3>
+
+@if (gameOver)
+{
+    <p>@message</p>
+    <button class="btn btn-primary" @onclick="ResetGame">Rejouer</button>
+}
+else
+{
+    <p>Devinez le nombre compris entre 1 et 20</p>
+    <div>
+        <input type="number" @bind="userGuess" />
+        <button class="btn btn-primary" @onclick="MakeGuess">Deviner</button>
+    </div>
+    @for (int i = 0; i < hearts; i++)
+    {
+        <span style="color: red;">&#10084;</span>
+    }
+}
+
+@code {
+    int randomNumber = new Random().Next(1, 21);
+    int userGuess;
+    int hearts = 10;
+    bool gameOver = false;
+    string message;
+
+    void MakeGuess()
+    {
+        if (userGuess == randomNumber)
+        {
+            message = "Gagné !";
+            gameOver = true;
+        }
+        else
+        {
+            hearts--;
+            if (hearts == 0)
+            {
+                message = $"Perdu ! Le bon nombre était {randomNumber}.";
+                gameOver = true;
+            }
+        }
+    }
+
+    void ResetGame()
+    {
+        randomNumber = new Random().Next(1, 21);
+        hearts = 10;
+        gameOver = false;
+    }
+}
