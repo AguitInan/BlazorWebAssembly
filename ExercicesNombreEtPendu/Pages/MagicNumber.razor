@@ -1,0 +1,21 @@
+﻿@page "/"
+@*@page "/setmax/{max:int}"*@
+
+<PageTitle>Nombre Magique</PageTitle>
+
+<h3>Nombre Magique</h3>
+
+@if (IsGameOver)
+{
+    <h2>@(IsWin ? "Gagné ! 🤪" : "Perdu 😭")</h2>
+    <button @onclick="Restart" class="btn btn-primary">Rejouer</button>
+}
+else
+{
+<h4>Devinez un nombre magique compris entre 0 et 20</h4>
+
+<input type="number" @bind="InputValue"/>
+<button @onclick="TestNumber" class="btn btn-primary">Tester</button>
+
+<p class="text-danger">@LifeString</p>
+}
