@@ -102,4 +102,20 @@ else
     {
         Restart();
     }
+
+    private void JouerUnTour(char? letter = null)
+    {
+
+        MessageTestChar = _pendu!.TestChar(letter ?? InputValue[0]);
+
+        _pendu.GenererMasque();
+
+
+        IsWin = _pendu.TestWin();
+        IsGameOver = IsWin || _pendu.NbEssaisRestants <= 0;
+        MessageMasque = $"Le mot à trouver : {_pendu.Masque}";
+        MessageEssaisRestants = $"Il vous reste {_pendu.NbEssaisRestants} essais";
+
+        ShowPendu = (Tries - _pendu.NbEssaisRestants) * 11 / Tries;
+    }
 }
