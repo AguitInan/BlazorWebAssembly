@@ -60,4 +60,13 @@ Nombre à trouver : @Number
             IsGameOver = true;
         }
     }
+
+    private void Restart()
+    {
+        IsGameOver = false;
+        Lives = 5;
+        Random rnd = new Random();
+        Number = rnd.Next(Max + 1);
+        InputValue = 0;
+    }
 }
