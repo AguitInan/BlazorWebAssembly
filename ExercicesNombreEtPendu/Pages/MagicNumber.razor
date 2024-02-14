@@ -43,4 +43,21 @@ Nombre à trouver : @Number
     {
         Restart();
     }
+
+    private void TestNumber()
+    {
+        if (InputValue == Number) // gagné
+        {
+            IsWin = true;
+            IsGameOver = true;
+        }
+
+        Lives--;
+
+        if(Lives == 0) // perdu
+        {
+            IsWin = false;
+            IsGameOver = true;
+        }
+    }
 }
