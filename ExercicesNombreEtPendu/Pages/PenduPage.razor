@@ -75,3 +75,21 @@ else
 </svg>
 
 <button class="btn btn-outline-warning" @onclick="() => ShowPendu = (ShowPendu + 1) % 12">Voir les différents pendus</button>
+
+@code {
+    private Pendu? _pendu;
+
+    public string? MessageMasque { get; set; }
+    public string? MessageEssaisRestants { get; set; }
+    public string? MessageTestChar { get; set; }
+
+    public string InputValue { get; set; } = "";
+
+    public bool IsGameOver { get; set; }
+    public bool IsWin { get; set; }
+
+    public int ShowPendu { get; set; }
+
+    [Parameter]
+    public int Tries { get; set; } = 10;
+}
