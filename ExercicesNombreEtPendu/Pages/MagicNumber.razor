@@ -19,3 +19,28 @@ else
 
 <p class="text-danger">@LifeString</p>
 }
+
+Nombre à trouver : @Number
+
+@code {
+
+    private int InputValue { get; set; }
+
+    private int Number { get; set; }
+
+    private int Lives { get; set; } = 5;
+
+    protected string LifeString => new string('❤', Lives); //❤❤❤❤❤
+
+    //[Parameter]
+    public int Max { get; set; } = 20;
+
+    public bool IsGameOver { get; set; }
+    public bool IsWin { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        Restart();
+    }
+}
