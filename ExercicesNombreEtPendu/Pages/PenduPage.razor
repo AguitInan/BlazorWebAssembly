@@ -118,4 +118,16 @@ else
 
         ShowPendu = (Tries - _pendu.NbEssaisRestants) * 11 / Tries;
     }
+
+    private void Restart()
+    {
+        _pendu = new Pendu(Tries);
+        IsGameOver = false;
+        IsWin = false;
+        InputValue = "";
+        MessageMasque = $"Le mot à trouver : {_pendu.Masque}";
+        MessageEssaisRestants = $"Il vous reste {_pendu.NbEssaisRestants} essais";
+        MessageTestChar = "";
+        ShowPendu = 0;
+    }
 }
